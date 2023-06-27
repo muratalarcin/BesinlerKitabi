@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="besin"
+            type="com.muratalarcin.besinlerkitabi.model.Besin" />
+        <variable
+            name="listener"
+            type="com.muratalarcin.besinlerkitabi.adapter.BesinClickListener" />
+    </data>
+
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:onClick="@{listener::besinTiklandi}"
+    android:orientation="horizontal"
+    android:layout_margin="2dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="2"
+        android:downloadImage="@{besin.besinGorsel}" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:id="@+id/besin_uuid"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(besin.uuid)}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/besinIsmiText"
+            android:text="@{besin.besinIsim}"
+            android:layout_margin="2dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/besinKaloriText"
+            android:text="@{besin.besiKalori}"
+            android:layout_margin="2dp"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</LinearLayout>
+</layout>
